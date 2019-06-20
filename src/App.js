@@ -1,20 +1,15 @@
-import React from 'react';
-import './App.css';
-import QuestionSection  from './packages/QuestionSection';  
+import React from "react";
+import "./App.scss";
+import Header from "./packages/Header";
+import Content from "./packages/Content";
+import Footer from "./packages/Footer"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-         Tiebreaker
-        </p>
-       </header>
-       <QuestionSection />
-
-       <QuestionSection />
-
-       <QuestionSection />
+      <Header />
+      <Content />
+      <Footer />
     </div>
   );
 }
