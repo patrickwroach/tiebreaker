@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import QuestionSection  from './packages/QuestionSection';  
 
 function App() {
   return (
@@ -9,8 +9,12 @@ function App() {
         <p>
          Tiebreaker
         </p>
-        <input>q</input>
-      </header>
+       </header>
+       <QuestionSection />
+
+       <QuestionSection />
+
+       <QuestionSection />
     </div>
   );
 }
