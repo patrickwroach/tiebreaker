@@ -1,0 +1,14 @@
+
+@mixin jagged-line-background {
+    background-repeat: no-repeat;
+    background-position: 85% 0%;
+    background-size: 10%;
+    background-image: url(../assets/images/jagged-strip.svg);
+    background-color: $color-highlight;
+    animation-name: backgroundSlideLeft;
+    -webkit-animation-name: backgroundSlideLeft;
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+  }

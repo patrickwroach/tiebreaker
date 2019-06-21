@@ -1,0 +1,14 @@
+.header {
+    order: -1;
+    background-color: #333333;
+    color: $color-highlight;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    svg {
+      width:25%;
+      height: auto;
+      margin-bottom:-4px;
+      min-width:300px;
+      max-width:400px;
+    }
+  }

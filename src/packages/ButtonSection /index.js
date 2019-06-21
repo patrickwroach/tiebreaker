@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
- 
+import React, { Component } from "react";
+
 class ButtonSection extends Component {
- render() {
+  render() {
     return (
       <div class="button-section">
-        <button> THIS WILL DO STUFF</button>
+        <button onClick={this.props.handleClick}>{this.props.text}</button>
       </div>
-    )
+    );
   }
 }
 
