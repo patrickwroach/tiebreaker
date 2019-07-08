@@ -4,7 +4,7 @@ class ResultsSection extends Component {
  render() {
     return (
       <div className="results-section">
-          <p>Player 1 is the winner y'all!</p>
+          <h1>Player 1 is the winner y'all!</h1>
       </div>
     )
   }

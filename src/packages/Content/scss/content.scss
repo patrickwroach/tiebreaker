@@ -7,13 +7,15 @@
     text-align: center;
     @include jagged-line-background();
   
-    .button-section {
+    .button-wrapper {
       flex: 0 0 20vh;
       width: 100%;
       position: relative;
       button {
         position: relative;
         z-index: 1;
+        width:10%;
+        font-size:200%;
       }
       &::after {
         content: "";
