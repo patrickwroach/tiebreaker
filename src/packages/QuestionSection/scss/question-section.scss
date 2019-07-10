@@ -1,0 +1,36 @@
+.questions-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: space-evenly;
+    .question-section{
+        max-height:200px;
+        
+        .question{ 
+            font-size:2rem;
+            color:$color-dark;
+        }
+        .answers{
+            width:100%;
+            input{
+                background: $color-dark;
+                color: $color-highlight;
+                width:60%;
+                border-radius: 2px;
+                padding: 10px;
+                font-size: 0.875rem;
+                margin: 10px 0;
+                display:inline-block;
+                border: none;
+
+                &:focus{
+                    outline-color: lighten($color-highlight, 30%);
+                    outline-width: thin;
+                    outline-style: solid;
+                    outline-offset: 1px;
+                }
+            }
+      }
+        
+    }
+}

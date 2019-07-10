@@ -52,7 +52,8 @@ class Content extends Component {
     if (this.state.answered) {
       displayedContent= <ResultsSection />;
     } else {
-      displayedContent = <QuestionSection />;
+      displayedContent = <QuestionSection />
+      ;
     }
 
     return (
