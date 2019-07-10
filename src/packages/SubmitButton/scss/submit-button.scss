@@ -1,0 +1,33 @@
+.submit-button {
+    position: relative;
+    width: 30%;
+    min-width:200px;
+    color: darken( $color-highlight, 10% );
+    text-decoration: none;
+    border-radius: 5px;
+    border: solid 1px lighten( $color-dark, 10% );
+    background: $color-dark;
+    text-align: center;
+    padding: 16px 18px 14px;
+
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 0px 6px 0px $color-higlight-dark;
+    -moz-box-shadow: 0px 6px 0px $color-higlight-dark;
+    box-shadow: 0px 6px 0px $color-higlight-dark;
+
+    &:active {
+        -webkit-box-shadow: 0px 2px 0px $color-higlight-dark;
+        -moz-box-shadow: 0px 2px 0px $color-higlight-dark;
+        box-shadow: 0px 2px 0px $color-higlight-dark;
+        position: relative;
+        top: 4px;
+    }
+
+    &:focus {
+        outline: none;
+        background:lighten( $color-dark, 5% ); 
+    }
+}
