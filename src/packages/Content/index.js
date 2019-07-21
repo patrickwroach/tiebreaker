@@ -2,21 +2,44 @@ import React, { Component } from "react";
 import QuestionSection from "../QuestionSection";
 import SubmitButton from "../SubmitButton";
 import ResultsSection from "../ResultsSection";
+import Randomizer from 'react-randomizer';
 
 class Content extends Component {
   constructor(props) {
     super(props);
     this.initialState = {
       answered: false,
-      buttonText:'Break Tie'
+      buttonText:'Break Tie',
+      answers: {
+        qQne: { 
+          highWins: 1,
+          playerOne: 0,
+          playerTwo: 0
+         },
+      }
     };
     this.state = this.initialState;
     this.submitAnswers = this.submitAnswers.bind(this);
     this.resetTieBreaker =this.resetTieBreaker.bind(this);
+    this.setHighOrLow =this.setHighOrLow.bind(this);
+  }
+
+  setHighOrLow() {
+    let randomizedHighWins = this.state.answers.qQne.highWins;
+    randomizedHighWins = Randomizer.randomNumber(0,1);
+    this.setState({
+      answers:{
+        qQne:{
+        highWins:randomizedHighWins
+        }
+      }
+    })
+ 
   }
 
   clickFunctionSplitter() {
     if (this.state.answered === false){
+      this.setHighOrLow();
       this.submitAnswers();
     } else{
       this.resetTieBreaker();
