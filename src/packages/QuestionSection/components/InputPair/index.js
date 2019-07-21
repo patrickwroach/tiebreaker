@@ -4,8 +4,10 @@ class InputPair extends Component {
  render() {
     return (
         <div className="answers">
-        <input placeholder="Player One"></input>
-        <input placeholder="Player Two"></input>
+          <label>Player One</label>
+          <input type="number" name="playerOne"/>
+          <label>Player Two</label>
+          <input type="number" name="playerTwo"/>
         </div>
     )
   }

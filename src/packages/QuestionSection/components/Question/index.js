@@ -4,7 +4,7 @@ class Question extends Component {
  render() {
     return (
       <p className="question">
-          What is a question, that is the question?
+         What day of the month were you born?
       </p>
     )
   }

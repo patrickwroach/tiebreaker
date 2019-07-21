@@ -10,14 +10,6 @@ class QuestionSection extends Component {
           <Question />
           <InputPair />
         </div>
-        <div className="question-section">
-          <Question />
-          <InputPair />
-        </div>
-        <div className="question-section">
-          <Question />
-          <InputPair />
-        </div>
       </div>
     );
   }

@@ -23,6 +23,11 @@
                 display:inline-block;
                 border: none;
 
+                label{
+                    display:inline-block;
+                    text-align: center;
+                }
+
                 &:focus{
                     outline-color: lighten($color-highlight, 30%);
                     outline-width: thin;
