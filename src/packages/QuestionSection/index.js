@@ -8,7 +8,7 @@ class QuestionSection extends Component {
       <div className="questions-wrapper">
         <div className="question-section">
           <Question />
-          <InputPair />
+          <InputPair  handleAnswerChange={this.props.handleAnswerChange} />
         </div>
       </div>
     );

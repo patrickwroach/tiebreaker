@@ -1,41 +1,61 @@
-.questions-wrapper{
+.questions-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
     justify-content: space-evenly;
-    .question-section{
+    .question-section {
         max-height:200px;
         
-        .question{ 
+        .question { 
             font-size:2rem;
             color:$color-dark;
         }
-        .answers{
-            width:100%;
-            input{
-                background: $color-dark;
-                color: $color-highlight;
-                width:60%;
-                border-radius: 2px;
-                padding: 10px;
-                font-size: 0.875rem;
-                margin: 10px 0;
-                display:inline-block;
-                border: none;
+        .answers {
+            width:80%;
+            margin: 30px auto;
+            white-space: nowrap;
 
-                label{
-                    display:inline-block;
-                    text-align: center;
+            .player{
+                display:inline-block;
+                width: 50%;
+                min-width: 200px;
+                text-align: center;
+
+                
+        
+                label {
+                        display:block;
+                        width:100%;
+                        text-align: center;
                 }
 
-                &:focus{
-                    outline-color: lighten($color-highlight, 30%);
-                    outline-width: thin;
-                    outline-style: solid;
-                    outline-offset: 1px;
+                input {
+                    background: $color-dark;
+                    color: $color-highlight;
+                    width:50px;
+                    border-radius: 2px;
+                    padding: 10px;
+                    font-size: 0.875rem;
+                    margin: 10px 0;
+                    display:inline-block;
+                    border: none;
+                    font-size:1.25rem;
+                    text-align:center;
+                    
+                    &[type=number]::-webkit-inner-spin-button, 
+                    &[type=number]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none;
+                        margin: 0; /* Removes leftover margin */
+                    }
+
+                    &:focus {
+                            outline-color: lighten($color-highlight, 30%);
+                            outline-width: thin;
+                            outline-style: solid;
+                            outline-offset: 1px;
+                    }
                 }
             }
-      }
-        
+        }     
     }
 }

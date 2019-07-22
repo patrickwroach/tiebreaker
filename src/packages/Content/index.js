@@ -13,8 +13,8 @@ class Content extends Component {
       answers: {
         qQne: { 
           highWins: 1,
-          playerOne: 0,
-          playerTwo: 0
+          playerOne: false,
+          playerTwo: false
          },
       }
     };
@@ -22,6 +22,7 @@ class Content extends Component {
     this.submitAnswers = this.submitAnswers.bind(this);
     this.resetTieBreaker =this.resetTieBreaker.bind(this);
     this.setHighOrLow =this.setHighOrLow.bind(this);
+    this.handleAnswerChange =this.handleAnswerChange.bind(this);
   }
 
   setHighOrLow() {
@@ -35,6 +36,12 @@ class Content extends Component {
       }
     })
  
+  }
+
+  handleAnswerChange(e) {
+    let answer = e.target.value
+    this.setState({ [e.target.name]: answer});
+
   }
 
   clickFunctionSplitter() {
@@ -73,9 +80,9 @@ class Content extends Component {
     let displayedContent;
 
     if (this.state.answered) {
-      displayedContent= <ResultsSection />;
+      displayedContent= <ResultsSection answers={this.state.answers} />;
     } else {
-      displayedContent = <QuestionSection />
+      displayedContent = <QuestionSection  handleAnswerChange={() => this.handleAnswerChange()} />
       ;
     }
 
