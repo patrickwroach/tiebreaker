@@ -2,65 +2,72 @@ import React, { Component } from "react";
 import QuestionSection from "../QuestionSection";
 import SubmitButton from "../SubmitButton";
 import ResultsSection from "../ResultsSection";
-import Randomizer from 'react-randomizer';
+import { setHighOrLow } from "./helpers/setHighOrLow";
 
 class Content extends Component {
   constructor(props) {
     super(props);
     this.initialState = {
       answered: false,
-      buttonText:'Break Tie',
-      answers: {
-        qQne: { 
-          highWins: 1,
-          playerOne: false,
-          playerTwo: false
-         },
-      }
+      buttonText: "Break Tie",
+      highWins: false,
+      playerOne: 0,
+      playerTwo: 0,
+      winner: undefined
     };
     this.state = this.initialState;
     this.submitAnswers = this.submitAnswers.bind(this);
-    this.resetTieBreaker =this.resetTieBreaker.bind(this);
-    this.setHighOrLow =this.setHighOrLow.bind(this);
-    this.handleAnswerChange =this.handleAnswerChange.bind(this);
+    this.resetTieBreaker = this.resetTieBreaker.bind(this);
+    this.setHighOrLow = setHighOrLow.bind(this);
+    this.handleAnswerChange = this.handleAnswerChange.bind(this);
   }
 
-  setHighOrLow() {
-    let randomizedHighWins = this.state.answers.qQne.highWins;
-    randomizedHighWins = Randomizer.randomNumber(0,1);
-    this.setState({
-      answers:{
-        qQne:{
-        highWins:randomizedHighWins
-        }
-      }
-    })
- 
+
+  handleAnswerChange(receivedAnswer, receivedName) {
+    this.setState(() => ({
+      [receivedName]: receivedAnswer
+    }));
   }
 
-  handleAnswerChange(e) {
-    let answer = e.target.value
-    this.setState({ [e.target.name]: answer});
+  testAnswers() {
 
+    //Check for tie condition and return null, initial state is set for a tie
+
+    if (this.state.playerOne === this.state.playerTwo) {
+      return null;
+    } 
+    
+    //determine who has the higher answer
+    let playerOneHasHigherAnswer = this.state.playerOne > this.state.playerTwo;
+
+    if ((this.state.highWins === playerOneHasHigherAnswer)) {
+      this.setState({
+        winner: "Player One"
+      });
+    } else {
+      this.setState({
+        winner: "Player Two"
+      });
+    }
   }
 
   clickFunctionSplitter() {
-    if (this.state.answered === false){
-      this.setHighOrLow();
+    if (this.state.answered === false) {
       this.submitAnswers();
-    } else{
+    } else {
       this.resetTieBreaker();
     }
   }
 
   submitAnswers() {
+    this.testAnswers();
     const answerStatus = true;
-    const newButtonText = 'Reset';
-
+    const newButtonText = "Reset";
     this.setState({
       answered: answerStatus,
       buttonText: newButtonText
     });
+    
   }
 
   resetTieBreaker() {
@@ -68,29 +75,46 @@ class Content extends Component {
   }
 
   displayedContent = () => {
-    if (this.submitAnswers === true){
+    if (this.state.answered === true) {
       return <ResultsSection />;
-    }else {
+    } else {
       return <QuestionSection />;
     }
-  }
+  };
 
   
+
   render() {
     let displayedContent;
-
     if (this.state.answered) {
-      displayedContent= <ResultsSection answers={this.state.answers} />;
+      displayedContent = (
+        <ResultsSection
+          winner = {this.state.winner}
+          testAnswers = {this.testAnswers}
+          whoWins = {this.state.highWins}
+
+        />
+      );
     } else {
-      displayedContent = <QuestionSection  handleAnswerChange={() => this.handleAnswerChange()} />
-      ;
+      displayedContent = (
+
+        <QuestionSection
+          playerOneAnswer={this.state.playerOne}
+          playerTwoAnswer={this.state.playerTwo}
+          handleAnswerChange={this.handleAnswerChange}
+          setHighOrLow={this.setHighOrLow}
+        />
+      );
     }
 
     return (
       <div className="content">
         {displayedContent}
         <div className="button-wrapper">
-          <SubmitButton  text={this.state.buttonText} handleClick={() => this.clickFunctionSplitter()}/>
+          <SubmitButton
+            text={this.state.buttonText}
+            handleClick={() => this.clickFunctionSplitter()}
+          />
         </div>
       </div>
     );

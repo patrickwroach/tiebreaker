@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
  
 class InputPair extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    const answer = e.target.value;
+    const targetName = e.target.name;
+    this.props.handleAnswerChange(answer, targetName);
+  }
+
  render() {
     return (
-        <div className="answers">
-         <div className="player">
+        <ul className="answers">
+         <li className="player">
             <label>Player One</label>
-            <input type="number" name="playerOne"  onChange={ this.props.handleAnswerChange }/>
-          </div>
-          <div className="player">
+            <input type="number" name="playerOne" onChange={this.handleChange} value={this.props.playerOneAnswer}/>
+          </li>
+          <li className="player">
             <label>Player Two</label>
-            <input type="number" name="playerTwo"  onChange={ this.props.handleAnswerChange }/>
-          </div>
-        </div>
+            <input type="number" name="playerTwo" onChange={this.handleChange} value={this.props.playerTwoAnswer} />
+          </li>
+        </ul>
     )
   }
 }

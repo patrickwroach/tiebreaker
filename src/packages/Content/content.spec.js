@@ -1,5 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
+import sinon from 'sinon';
 import Content from ".";
 
 describe("<Content />", () => {
@@ -33,4 +34,5 @@ describe("<Content />", () => {
     expect(wrapper.state("buttonText")).toBe(initialState.buttonText);
     expect(wrapper.state("answered")).toBe(initialState.answered);
   });
+
 });
