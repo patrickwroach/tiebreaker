@@ -6,6 +6,7 @@ describe('<Results  />', ()=> {
     it('renders without crashing', () => {
         shallow(<ResultsSection />);
       });
+      
       it('displays the correct winner', () => {
         const testWinner = "playerTwo"
         const resultsTest = shallow(<ResultsSection winner = {testWinner} />);
