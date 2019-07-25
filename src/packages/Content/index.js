@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import QuestionSection from "../QuestionSection";
 import SubmitButton from "../SubmitButton";
 import ResultsSection from "../ResultsSection";
-import { setHighOrLow } from "./helpers/setHighOrLow";
+import setHighOrLow  from "./helpers/setHighOrLow";
 
 class Content extends Component {
   constructor(props) {
